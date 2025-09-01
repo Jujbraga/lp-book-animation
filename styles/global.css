@@ -36,18 +36,25 @@
   --fs-title-md: 2.5rem;
   --fs-title-sm: 1.5rem;
   --fs-title-xs: 1rem;
-  --fs-body-lg: 1.25rem;
+  --fs-body-lg: 0.75rem;
   --fs-body-sm: 0.875rem;
   --fs-body-xs: 0.75rem;
 }
 
 html {
   font: var(--fw-base) 1rem/1.4 var(--font-family);
+  color: var(--text-body);
+}
+
+body {
+  background-color: var(--shape-background);
+  text-align: center;
 }
 
 h1,
 h2 {
-  font-weight: var(fw-bold);
+  font-weight: var(--fw-bold);
+  color: var(--text-title);
 }
 
 h1 {
@@ -58,9 +65,31 @@ h2 {
   font-size: var(--fs-title-sm);
 }
 
+a {
+  text-decoration: none;
+}
+
+.container {
+  max-width: 75rem;
+  padding: 1.25rem;
+  margin-inline: auto;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  height: 2.5rem;
+  padding: 0 1.25rem;
+  background-color: var(--pink-dark);
+  border-radius: 0.5rem;
+  font: var(--fw-bold) 0.75rem/1 var(--font-family);
+  color: var(--text-title);
+}
+
 @media (width >= 60em) {
   :root {
     --fs-title-lg: 3rem;
     --fs-title-sm: 2rem;
+    --fs-body-lg: 1.25rem;
   }
 }

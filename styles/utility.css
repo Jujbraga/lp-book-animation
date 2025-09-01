@@ -1,0 +1,17 @@
+.grid {
+  display: grid;
+}
+
+.desktop-only {
+  display: none;
+}
+
+@media (width >= 60em) {
+  & .mobile-only {
+    display: none;
+  }
+
+  & .desktop-only {
+    display: inline-block;
+  }
+}
