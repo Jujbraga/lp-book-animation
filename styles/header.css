@@ -1,0 +1,38 @@
+header {
+  background: url(../assets/hero-background.png) no-repeat bottom center/cover;
+  height: 80vh;
+
+  & nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  & div:nth-child(2) {
+    gap: 1rem;
+    margin-top: 5.18rem;
+
+    & p {
+      font-size: var(--fs-body-lg);
+    }
+  }
+
+  @media (width >= 60em) {
+    height: 43.75rem;
+
+    & nav {
+      padding-top: 2.25rem;
+    }
+
+    & div:nth-child(2) {
+      gap: 2rem;
+      max-width: 41rem;
+      margin-inline: auto;
+
+      & p {
+        max-width: 35.5rem;
+        margin-inline: auto;
+      }
+    }
+  }
+}
