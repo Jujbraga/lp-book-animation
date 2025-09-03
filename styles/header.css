@@ -60,6 +60,10 @@ header {
       opacity: 0;
       animation: imgAppear 3s ease both;
       animation-timeline: view();
+
+      &:hover {
+        rotate: 30deg;
+      }
     }
 
     & img[src*="spellbook"] {
@@ -71,6 +75,7 @@ header {
     }
 
     & img[src*="crystal"] {
+      rotate: -20deg;
       animation-range: entry 232% cover 0%;
     }
   }
