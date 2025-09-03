@@ -2,6 +2,10 @@
   display: grid;
 }
 
+.flex {
+  display: flex;
+}
+
 .desktop-only {
   display: none;
 }

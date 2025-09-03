@@ -1,38 +1,140 @@
 header {
-  background: url(../assets/hero-background.png) no-repeat bottom center/cover;
-  height: 80vh;
+  & #hero {
+    background: url(../assets/hero-background.png) no-repeat bottom center/cover;
+    height: 80vh;
 
-  & nav {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    & nav {
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    & div:nth-child(2) {
+      gap: 1rem;
+      margin-top: 5.18rem;
+
+      & p {
+        font-size: var(--fs-body-lg);
+      }
+    }
   }
 
-  & div:nth-child(2) {
-    gap: 1rem;
-    margin-top: 5.18rem;
+  & #imgs-animated {
+    margin-block: 2.5rem;
+    padding-block: 3rem;
 
-    & p {
-      font-size: var(--fs-body-lg);
+    & > div {
+      justify-content: space-between;
+    }
+
+    & img {
+      max-height: 5.5rem;
+    }
+
+    & h3 span {
+      color: gray;
+      animation: fadeToWhite 3s linear forwards;
+      animation-timeline: view();
+    }
+
+    & h3 span strong {
+      animation: fadeToBlue 2s linear forwards;
+      animation-timeline: view();
+    }
+
+    & h3 {
+      & span:nth-child(1),
+      span:nth-child(1) strong {
+        animation-range: entry 265px cover 0%;
+      }
+      & span:nth-child(2),
+      span:nth-child(2) strong {
+        animation-range: entry 302px cover 0%;
+      }
+      & span:nth-child(3),
+      span:nth-child(3) strong {
+        animation-range: entry 332px cover 0%;
+      }
+    }
+
+    & img[src*="mystery"] {
+      opacity: 0;
+      animation: imgAppear 3s ease both;
+      animation-timeline: view();
+    }
+
+    & img[src*="spellbook"] {
+      animation-range: entry 406% cover 0%;
+    }
+
+    & img[src*="wand"] {
+      animation-range: entry 196% cover 0%;
+    }
+
+    & img[src*="crystal"] {
+      animation-range: entry 232% cover 0%;
     }
   }
 
   @media (width >= 60em) {
-    height: 43.75rem;
+    & #hero {
+      height: 43.75rem;
 
-    & nav {
-      padding-top: 2.25rem;
-    }
+      & nav {
+        padding-top: 2.25rem;
+      }
 
-    & div:nth-child(2) {
-      gap: 2rem;
-      max-width: 41rem;
-      margin-inline: auto;
-
-      & p {
-        max-width: 35.5rem;
+      & div:nth-child(2) {
+        gap: 2rem;
+        max-width: 41rem;
         margin-inline: auto;
+
+        & p {
+          max-width: 35.5rem;
+          margin-inline: auto;
+        }
       }
     }
+  }
+}
+
+@keyframes imgAppear {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.02);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes fadeToWhite {
+  0% {
+    opacity: 0.5;
+  }
+
+  100% {
+    color: var(--text-body);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeToBlue {
+  0% {
+    opacity: 0.8;
+    color: gray;
+  }
+
+  70% {
+    color: gray;
+  }
+
+  100% {
+    color: var(--blue-light);
+    opacity: 1;
   }
 }

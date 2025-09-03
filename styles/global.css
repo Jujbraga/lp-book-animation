@@ -36,7 +36,7 @@
   --fs-title-md: 2.5rem;
   --fs-title-sm: 1.5rem;
   --fs-title-xs: 1rem;
-  --fs-body-lg: 0.75rem;
+  --fs-body-lg: 0.875rem;
   --fs-body-sm: 0.875rem;
   --fs-body-xs: 0.75rem;
 }
@@ -63,6 +63,10 @@ h1 {
 
 h2 {
   font-size: var(--fs-title-sm);
+}
+
+h3 {
+  font: var(--fw-md) clamp(1rem, 2.5vw, 2rem) / 2 var(--font-family);
 }
 
 a {
