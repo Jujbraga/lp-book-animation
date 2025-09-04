@@ -4,6 +4,11 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font: inherit; /* Resets all fonts in the project */
+
+  /* Smoothes the fonts */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 :root {
@@ -69,6 +74,10 @@ a {
   text-decoration: none;
 }
 
+li {
+  list-style: none;
+}
+
 .container {
   max-width: 75rem;
   padding: 1.25rem;
@@ -77,6 +86,7 @@ a {
 
 .button {
   display: inline-flex;
+  justify-content: center;
   align-items: center;
   height: 2.5rem;
   padding: 0 1.25rem;

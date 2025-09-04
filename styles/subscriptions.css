@@ -1,0 +1,232 @@
+#subscriptions {
+  margin-block: 3rem;
+
+  & h2 {
+    max-width: 19rem;
+    margin: auto;
+  }
+
+  & .cards {
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: stretch;
+    padding-block: 3rem;
+    position: relative;
+  }
+
+  & .card {
+    max-width: 18rem;
+    padding: 2rem 2rem 1.75rem;
+    background-color: var(--shape-base);
+    border: 1px solid var(--shape-stroke);
+    border-radius: 1.5rem;
+    display: grid;
+    gap: 1.5rem;
+    text-align: left;
+    position: relative;
+
+    & .price {
+      font-weight: var(--fw-bold);
+
+      & strong {
+        font-size: var(--fs-title-md);
+      }
+
+      & small {
+        font-size: var(--fs-body-sm);
+        line-height: 1.4;
+        font-weight: var(--fw-base);
+      }
+    }
+
+    & ul {
+      align-self: end;
+      font-size: var(--fs-body-xs);
+      line-height: 1.4;
+      display: grid;
+      gap: 0.75rem;
+
+      & li {
+        display: flex;
+        gap: 0.5rem;
+      }
+    }
+
+    & .button {
+      width: 100%;
+      border-radius: 0.5rem;
+      text-align: center;
+      font-size: var(--fs-body-sm);
+      align-self: flex-end;
+    }
+  }
+
+  & .card:nth-child(1) {
+    &::before {
+      content: "";
+      background: url(../assets/icons/pink-star.svg) no-repeat;
+      background-size: 50px;
+      width: 50px;
+      height: 40px;
+      top: -2.5rem;
+      left: -2.5rem;
+      position: absolute;
+    }
+
+    &::after {
+      content: "";
+      background: url(../assets/icons/pink-star-sm.svg) no-repeat;
+      background-size: 12px;
+      width: 50px;
+      height: 40px;
+      top: 0;
+      left: -2.3rem;
+      position: absolute;
+    }
+  }
+
+  & .card:nth-child(3) {
+    &::before {
+      content: "";
+      background: url(../assets/icons/pink-star.svg) no-repeat;
+      background-size: 50px;
+      width: 50px;
+      height: 40px;
+      bottom: -1.1rem;
+      right: -3rem;
+      position: absolute;
+    }
+
+    &::after {
+      content: "";
+      background: url(../assets/icons/pink-star-sm.svg) no-repeat;
+      background-size: 12px;
+      width: 50px;
+      height: 40px;
+      bottom: -3rem;
+      right: -2.3rem;
+      position: absolute;
+    }
+  }
+
+  & .card:nth-child(odd) {
+    & h3 {
+      color: var(--blue-light);
+    }
+
+    & li::before {
+      content: url(../assets/icons/star.svg);
+    }
+
+    & .button {
+      background: var(--blue-dark);
+    }
+  }
+
+  & .card:nth-child(even) {
+    z-index: 2;
+
+    & img {
+      position: absolute;
+      top: -3.2rem;
+      left: 2rem;
+      display: none;
+    }
+
+    & h3 {
+      color: var(--pink-light);
+      position: relative;
+
+      &::after {
+        content: "popular";
+        color: var(--text-body);
+        font-size: 0.625rem;
+        font-weight: var(--fw-bold);
+        text-transform: uppercase;
+        background-color: var(--shape-stroke);
+        padding: 0.5625rem 1.25rem;
+        border-radius: 9999px;
+        position: absolute;
+        right: 0;
+        top: -0.4rem;
+      }
+    }
+
+    & li::before {
+      content: url(../assets/icons/pink-star-sm.svg);
+    }
+  }
+
+  @media (width >= 50em) {
+    & h2 {
+      margin-bottom: 3rem;
+    }
+
+    & .cards {
+      gap: 0;
+    }
+
+    & .card:hover {
+      background-color: var(--shape-hover);
+      box-shadow: 0 2px 5px rgba(247, 245, 245, 0.1),
+        0px 9px 9px rgba(0, 0, 0, 0.09), 0px 20px 12px rgba(0, 0, 0, 0.05),
+        0px 36px 15px rgba(0, 0, 0, 0.01);
+    }
+
+    & .card:nth-child(1) {
+      transition: transform 0.5s ease-in-out;
+      transform: translateY(46px) rotate(-8deg);
+
+      &:hover {
+        transform: translateY(26px) rotate(-8deg);
+        &::before {
+          animation: rotateStars 1s linear forwards;
+        }
+        &::after {
+          animation: rotateStars 1s linear forwards;
+        }
+      }
+    }
+
+    & .card:nth-child(2) {
+      transition: all 0.5s ease-in-out;
+
+      & img {
+        display: inline-flex;
+      }
+
+      &:hover {
+        transform: translateY(-1.25rem);
+      }
+    }
+
+    & .card:nth-child(3) {
+      transition: transform 0.5s ease-in-out;
+      transform: translateY(46px) rotate(8deg);
+
+      &:hover {
+        transform: translateY(26px) rotate(8deg);
+
+        &::before {
+          animation: rotateStars 1s linear forwards;
+        }
+        &::after {
+          animation: rotateStars 1s linear forwards;
+        }
+      }
+    }
+  }
+}
+
+@keyframes rotateStars {
+  from {
+    transform: rotate(0deg) scale(1);
+  }
+  50% {
+    transform: rotate(80deg) scale(1.2);
+  }
+  to {
+    transform: rotate(100deg) scale(1);
+  }
+}
