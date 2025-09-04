@@ -30,18 +30,22 @@ header {
       max-height: 5.5rem;
     }
 
-    & h3 span {
+    & p {
+      font: var(--fw-md) clamp(1rem, 2.5vw, 2rem) / 2 var(--font-family);
+    }
+
+    & p span {
       color: gray;
       animation: fadeToWhite 3s linear forwards;
       animation-timeline: view();
     }
 
-    & h3 span strong {
+    & p span strong {
       animation: fadeToBlue 2s linear forwards;
       animation-timeline: view();
     }
 
-    & h3 {
+    & p {
       & span:nth-child(1),
       span:nth-child(1) strong {
         animation-range: entry 265px cover 0%;
