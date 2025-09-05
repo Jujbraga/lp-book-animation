@@ -1,5 +1,6 @@
 #subscriptions {
   margin-block: 3rem;
+  background: url(../assets/pricing-background.png) no-repeat top center/cover;
 
   & h2 {
     max-width: 19rem;
@@ -159,6 +160,8 @@
   }
 
   @media (width >= 50em) {
+    padding-bottom: 7rem;
+
     & h2 {
       margin-bottom: 3rem;
     }
