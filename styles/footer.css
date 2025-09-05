@@ -7,27 +7,31 @@ footer {
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    gap: 1.5rem;
+    gap: 2.5rem;
 
     & .social-wrapper {
+      margin-top: 0.75rem;
+      border-top: 1px solid var(--shape-stroke);
       padding-top: 0.75rem;
       justify-content: space-between;
       width: 289px;
 
-      & a {
+      & a.social {
         display: flex;
         align-items: center;
         padding: 0.5rem;
-        & svg path {
-          fill: var(--blue-light);
+        filter: invert(55%) sepia(8%) saturate(3140%) hue-rotate(157deg)
+          brightness(87%) contrast(103%);
+        padding: 0.5rem;
+
+        & img {
+          width: calc(40px - 1rem);
         }
+
         &:hover {
           background-color: var(--blue-dark);
           border-radius: 999px;
-
-          & svg path {
-            fill: var(--text-body);
-          }
+          filter: var(--text-body);
         }
       }
     }
@@ -61,6 +65,7 @@ footer {
   @media (width >= 60em) {
     & > div {
       justify-content: space-between;
+      gap: 1.5rem;
 
       & .social-wrapper {
         width: 100%;
