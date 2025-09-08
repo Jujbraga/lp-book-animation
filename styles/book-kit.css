@@ -1,0 +1,174 @@
+#book {
+  & h2::before,
+  h2::after {
+    content: "✦";
+    width: 1.25rem;
+    color: var(--pink-dark);
+    padding-inline: 0.75rem;
+  }
+
+  & p {
+    margin-block: 0.5rem 1rem;
+  }
+
+  & .book-kit {
+    height: 19.94rem;
+    position: relative;
+    /* Create scroll timeline for this container */
+    view-timeline-name: --book-timeline;
+    view-timeline-axis: block;
+
+    & img {
+      max-height: 13rem;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      margin: auto;
+    }
+
+    & p {
+      display: none;
+      /*
+      position: absolute;
+      left: 50%;
+      right: 50%;
+      top: 50%;
+      bottom: 50%;
+      transform: translate(-50%, -50%); */
+    }
+
+    & p:nth-child(2) {
+      position: absolute;
+
+      &::after {
+        content: "";
+        width: 174px;
+        height: 40px;
+        position: absolute;
+        top: 20px;
+        background: url(../assets/book-kit/arrow-top.svg) no-repeat;
+      }
+    }
+
+    & img[src*="pin"] {
+      max-width: clamp(4.68rem, 16vw, 13.875rem);
+      top: 33%;
+      right: 17%;
+      z-index: -1;
+      animation: slideRightBottom 0.7s both;
+    }
+
+    & img[src*="bookmark-yellow"] {
+      max-width: clamp(3.65rem, 13vw, 10.75rem);
+      top: -5%;
+      left: 10%;
+      z-index: -1;
+      animation: slideLeftYellow 0.7s both;
+    }
+
+    & img[src*="bookmark-purple"] {
+      max-width: clamp(3.65rem, 13vw, 10.75rem);
+      top: 5%;
+      left: 25%;
+      z-index: -2;
+      animation: slideLeftPurple 0.7s both;
+    }
+
+    & img[src*="pin"],
+    img[src*="bookmark-yellow"],
+    img[src*="bookmark-purple"] {
+      /* Ensure all animations start and end at exactly the same time */
+      animation-duration: 0.7s;
+      animation-timing-function: ease-in-out;
+      animation-fill-mode: both;
+      animation-timeline: --book-timeline;
+      animation-range: 40vh 50vh;
+    }
+  }
+
+  @media (width >= 50em) {
+    & .book-kit {
+      height: 50rem;
+
+      &:hover {
+        & img[src*="pin"] {
+          transform: translate(-170px, 90px);
+          rotate: -10deg;
+        }
+
+        & img[src*="bookmark-yellow"] {
+          transform: translate(185px, -110px);
+          rotate: 10deg;
+        }
+
+        & img[src*="bookmark-purple"] {
+          transform: translate(185px, -110px);
+          rotate: 20deg;
+        }
+      }
+
+      & img {
+        max-height: 38.56rem;
+      }
+
+      & img[src*="pin"],
+      img[src*="bookmark-yellow"],
+      img[src*="bookmark-purple"] {
+        animation: none;
+      }
+
+      & img[src*="pin"] {
+        transition: transform 0.5s, rotate 0.5s;
+        transition-timing-function: cubic-bezier(0.239, 0.234, 0.553, 1.238);
+      }
+
+      & img[src*="bookmark-yellow"] {
+        height: 536px;
+        transition: transform 0.5s, rotate 0.5s;
+        transition-timing-function: cubic-bezier(0.239, 0.234, 0.553, 1.238);
+      }
+
+      & img[src*="bookmark-purple"] {
+        height: 536px;
+        transition: transform 0.5s, rotate 0.5s;
+        transition-timing-function: cubic-bezier(0.239, 0.234, 0.553, 1.238);
+      }
+    }
+  }
+}
+
+@keyframes slideRightBottom {
+  80% {
+    transform: translate(-66px, 30px);
+    scale: 1.01;
+  }
+  100% {
+    transform: translate(-65px, 30px);
+    rotate: -10deg;
+    scale: 1;
+  }
+}
+
+@keyframes slideLeftYellow {
+  80% {
+    scale: 1.01;
+  }
+  to {
+    transform: translate(65px, -40px);
+    rotate: 10deg;
+    scale: 1;
+  }
+}
+
+@keyframes slideLeftPurple {
+  80% {
+    scale: 1.01;
+  }
+  to {
+    transform: translate(65px, -40px);
+    rotate: 20deg;
+    scale: 1;
+  }
+}
