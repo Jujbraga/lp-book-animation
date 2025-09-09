@@ -31,7 +31,10 @@
         position: absolute;
 
         &.top {
-          top: 0;
+          top: 2rem;
+          left: 4rem;
+          opacity: 0;
+          animation: slideRightTop 0.7s both;
 
           &::after {
             content: "";
@@ -45,9 +48,10 @@
         }
 
         &.middle {
-          left: 0;
-          top: 40%;
-          animation: slideRightBottom 0.7s both;
+          left: 4rem;
+          top: 30%;
+          opacity: 0;
+          animation: slideRightBottom 0.3s both;
 
           &::after {
             content: "";
@@ -62,8 +66,10 @@
         }
 
         &.bottom {
-          right: 2rem;
-          bottom: 0;
+          right: 6rem;
+          bottom: -2rem;
+          opacity: 0;
+          animation: slideLeftYellow 0.7s both;
 
           &::after {
             content: "";
@@ -115,7 +121,10 @@
 
     & img[src*="pin"],
     img[src*="bookmark-yellow"],
-    img[src*="bookmark-purple"] {
+    img[src*="bookmark-purple"],
+    .text-wrapper p.top,
+    .text-wrapper p.middle,
+    .text-wrapper p.bottom {
       /* Ensure all animations start and end at exactly the same time */
       animation-duration: 0.7s;
       animation-timing-function: ease-in-out;
@@ -137,16 +146,23 @@
         & p {
           font-size: 1rem;
 
-          &.top::after {
-            width: 10.875rem;
-            height: 2.5rem;
-            bottom: -3rem;
-            left: 4rem;
-            background: url(../assets/book-kit/arrow-top.svg) no-repeat;
+          &.top {
+            top: 4rem;
+            left: 16rem;
+            opacity: 1;
+
+            &::after {
+              width: 10.875rem;
+              height: 2.5rem;
+              bottom: -3rem;
+              left: 4rem;
+              background: url(../assets/book-kit/arrow-top.svg) no-repeat;
+            }
           }
 
           &.middle {
-            top: 50%;
+            left: 15.5rem;
+            opacity: 1;
 
             &::after {
               width: 10.875rem;
@@ -158,7 +174,9 @@
           }
 
           &.bottom {
-            right: 5rem;
+            right: 16rem;
+            bottom: 7rem;
+            opacity: 1;
 
             &::after {
               width: 10rem;
@@ -172,6 +190,18 @@
       }
 
       &:hover {
+        & p.top {
+          transform: translate(-255px, -60px);
+        }
+
+        & p.middle {
+          transform: translate(-235px, 160px);
+        }
+
+        & p.bottom {
+          transform: translate(160px, 130px);
+        }
+
         & img[src*="pin"] {
           transform: translate(-170px, 90px);
           rotate: -10deg;
@@ -194,27 +224,35 @@
 
       & img[src*="pin"],
       img[src*="bookmark-yellow"],
-      img[src*="bookmark-purple"] {
+      img[src*="bookmark-purple"],
+      .text-wrapper p.top,
+      .text-wrapper p.middle,
+      .text-wrapper p.bottom {
         animation: none;
-      }
-
-      & img[src*="pin"] {
         transition: transform 0.5s, rotate 0.5s;
         transition-timing-function: cubic-bezier(0.239, 0.234, 0.553, 1.238);
       }
 
       & img[src*="bookmark-yellow"] {
         height: 536px;
-        transition: transform 0.5s, rotate 0.5s;
-        transition-timing-function: cubic-bezier(0.239, 0.234, 0.553, 1.238);
       }
 
       & img[src*="bookmark-purple"] {
         height: 536px;
-        transition: transform 0.5s, rotate 0.5s;
-        transition-timing-function: cubic-bezier(0.239, 0.234, 0.553, 1.238);
       }
     }
+  }
+}
+
+@keyframes slideRightTop {
+  80% {
+    scale: 1.01;
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-65px, -30px);
+    scale: 1;
+    opacity: 1;
   }
 }
 
@@ -222,22 +260,26 @@
   80% {
     transform: translate(-66px, 30px);
     scale: 1.01;
+    opacity: 1;
   }
   100% {
     transform: translate(-65px, 30px);
     rotate: -10deg;
     scale: 1;
+    opacity: 1;
   }
 }
 
 @keyframes slideLeftYellow {
   80% {
     scale: 1.01;
+    opacity: 1;
   }
   to {
     transform: translate(65px, -40px);
     rotate: 10deg;
     scale: 1;
+    opacity: 1;
   }
 }
 
